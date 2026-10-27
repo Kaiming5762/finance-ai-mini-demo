@@ -1,4 +1,4 @@
-ticker,asset_class,expected_return_pct,volatility_pct,max_drawdown_pct,expense_ratio_pct
-SPY,US Equity,8.2,18,-24,0.09
-TLT,Long-Term US Treasury,4,14,-18,0.15
-GLD,Gold,5.5,15.5,-16,0.4
+ticker,adjusted_close
+SPY,307.63
+TLT,198.45
+GLD,212.10
