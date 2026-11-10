@@ -1,0 +1,5 @@
+﻿offer_id,lender,principal,annual_nominal_rate,term_months,repayment_type,fee_upfront_fixed,fee_upfront_pct,fee_monthly
+B1_INDUSTRIAL,Industrial Equipment Finance,600000,0.0435,60,annuity,0,0.015,0
+B2_CITY_BANK,City Commercial Bank,600000,0.0485,60,annuity,0,0,0
+B3_LESSOR,Equipment Lessor,600000,0.0510,48,equal_principal,6000,0,0
+B4_DIGITAL,Digital SME Lender,600000,0.0460,48,annuity,3000,0,60

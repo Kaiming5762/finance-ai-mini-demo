@@ -1,0 +1,18 @@
+# Loan Offer Compass - dependencies
+#
+# The engine and the independent checker use the Python 3.9+ STANDARD LIBRARY
+# ONLY. There are no third-party packages to install.
+#
+#   argparse, csv, datetime, html, importlib.util, json, math, pathlib,
+#   subprocess, sys, tempfile, xml.etree.ElementTree (validation helper only)
+#
+# Tested with Python 3.13.14 on Windows 11 (Git Bash), 2026-11-10.
+#
+# To reproduce:
+#   python --version
+#   python scripts/run_all.py
+#
+# No model API key, no network access, no credentials and no paid data are used
+# by the reusable component. The PDF/DOCX report was exported once with the
+# locally installed Microsoft Word 16.0; that export is NOT needed to rerun the
+# calculation.

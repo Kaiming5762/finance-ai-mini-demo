@@ -1,0 +1,666 @@
+[
+  {
+    "case": "run integrity",
+    "method": "summary.json offer count == offers CSV row count",
+    "expected": "4",
+    "actual": "4",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "run integrity",
+    "method": "all engine self-checks pass",
+    "expected": "True",
+    "actual": "True",
+    "pass": true,
+    "note": "Engine self-checks are not independent; see the recomputations below."
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "schedule row count == term_months",
+    "expected": "36",
+    "actual": "36",
+    "pass": true,
+    "note": "Re-read from the saved schedule CSV."
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "interest_t = opening_t * monthly rate",
+    "expected": "max abs error <= 1e-06",
+    "actual": "5.002e-11",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "closing_t = opening_t - principal_t",
+    "expected": "max abs error <= 1e-06",
+    "actual": "1.164e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "outflow_t = interest + principal + monthly fee",
+    "expected": "max abs error <= 1e-06",
+    "actual": "1.000e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "sum of principal == original principal",
+    "expected": "180000.000000",
+    "actual": "180000.000000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "final closing balance == 0",
+    "expected": "0",
+    "actual": "0.000e+00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "sum(outflows) = interest + principal + all monthly fees",
+    "expected": "194793.823282",
+    "actual": "194793.823282",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "level instalment: bisection on balance recursion vs engine closed form",
+    "expected": "5410.939536",
+    "actual": "5410.939536",
+    "pass": true,
+    "note": "Independent algorithm; equality supports the annuity formula."
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "first schedule outflow == level instalment + monthly fee",
+    "expected": "5410.939536",
+    "actual": "5410.939536",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "effective APR: Newton IRR vs engine bisection IRR",
+    "expected": "0.069003688",
+    "actual": "0.069003688",
+    "pass": true,
+    "note": "Different root-finding method on the same saved cash flows."
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "NPV of saved cash flows at independently solved IRR == 0",
+    "expected": "|NPV| <= 1e-06",
+    "actual": "4.420e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "all-in cost == total interest + all fees",
+    "expected": "19293.823282",
+    "actual": "19293.823282",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "all-in cost == sum(outflows) - net disbursement",
+    "expected": "19293.823282",
+    "actual": "19293.823282",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "peak outflow == max of saved outflows",
+    "expected": "5410.939536",
+    "actual": "5410.939536",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A1_LOW_RATE_FEE",
+    "method": "affordability flag matches saved peak vs binding ceiling",
+    "expected": "True",
+    "actual": "True",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "schedule row count == term_months",
+    "expected": "36",
+    "actual": "36",
+    "pass": true,
+    "note": "Re-read from the saved schedule CSV."
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "interest_t = opening_t * monthly rate",
+    "expected": "max abs error <= 1e-06",
+    "actual": "4.883e-11",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "closing_t = opening_t - principal_t",
+    "expected": "max abs error <= 1e-06",
+    "actual": "1.164e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "outflow_t = interest + principal + monthly fee",
+    "expected": "max abs error <= 1e-06",
+    "actual": "1.010e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "sum of principal == original principal",
+    "expected": "180000.000000",
+    "actual": "180000.000000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "final closing balance == 0",
+    "expected": "0",
+    "actual": "0.000e+00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "sum(outflows) = interest + principal + all monthly fees",
+    "expected": "198016.184800",
+    "actual": "198016.184800",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "level instalment: bisection on balance recursion vs engine closed form",
+    "expected": "5500.449578",
+    "actual": "5500.449578",
+    "pass": true,
+    "note": "Independent algorithm; equality supports the annuity formula."
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "first schedule outflow == level instalment + monthly fee",
+    "expected": "5500.449578",
+    "actual": "5500.449578",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "effective APR: Newton IRR vs engine bisection IRR",
+    "expected": "0.063000000",
+    "actual": "0.063000000",
+    "pass": true,
+    "note": "Different root-finding method on the same saved cash flows."
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "NPV of saved cash flows at independently solved IRR == 0",
+    "expected": "|NPV| <= 1e-06",
+    "actual": "4.702e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "all-in cost == total interest + all fees",
+    "expected": "18016.184800",
+    "actual": "18016.184800",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "all-in cost == sum(outflows) - net disbursement",
+    "expected": "18016.184800",
+    "actual": "18016.184800",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "peak outflow == max of saved outflows",
+    "expected": "5500.449578",
+    "actual": "5500.449578",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A2_NO_FEE",
+    "method": "affordability flag matches saved peak vs binding ceiling",
+    "expected": "True",
+    "actual": "True",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "schedule row count == term_months",
+    "expected": "24",
+    "actual": "24",
+    "pass": true,
+    "note": "Re-read from the saved schedule CSV."
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "interest_t = opening_t * monthly rate",
+    "expected": "max abs error <= 1e-06",
+    "actual": "4.934e-11",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "closing_t = opening_t - principal_t",
+    "expected": "max abs error <= 1e-06",
+    "actual": "1.019e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "outflow_t = interest + principal + monthly fee",
+    "expected": "max abs error <= 1e-06",
+    "actual": "1.000e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "sum of principal == original principal",
+    "expected": "180000.000000",
+    "actual": "180000.000000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "final closing balance == 0",
+    "expected": "0",
+    "actual": "0.000e+00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "sum(outflows) = interest + principal + all monthly fees",
+    "expected": "193026.091804",
+    "actual": "193026.091804",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "level instalment: bisection on balance recursion vs engine closed form",
+    "expected": "8042.753825",
+    "actual": "8042.753825",
+    "pass": true,
+    "note": "Independent algorithm; equality supports the annuity formula."
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "first schedule outflow == level instalment + monthly fee",
+    "expected": "8042.753825",
+    "actual": "8042.753825",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "effective APR: Newton IRR vs engine bisection IRR",
+    "expected": "0.068000000",
+    "actual": "0.068000000",
+    "pass": true,
+    "note": "Different root-finding method on the same saved cash flows."
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "NPV of saved cash flows at independently solved IRR == 0",
+    "expected": "|NPV| <= 1e-06",
+    "actual": "1.146e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "all-in cost == total interest + all fees",
+    "expected": "13026.091804",
+    "actual": "13026.091804",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "all-in cost == sum(outflows) - net disbursement",
+    "expected": "13026.091804",
+    "actual": "13026.091804",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "peak outflow == max of saved outflows",
+    "expected": "8042.753825",
+    "actual": "8042.753825",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A3_SHORT_TERM",
+    "method": "affordability flag matches saved peak vs binding ceiling",
+    "expected": "False",
+    "actual": "False",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "schedule row count == term_months",
+    "expected": "36",
+    "actual": "36",
+    "pass": true,
+    "note": "Re-read from the saved schedule CSV."
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "interest_t = opening_t * monthly rate",
+    "expected": "max abs error <= 1e-06",
+    "actual": "3.342e-11",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "closing_t = opening_t - principal_t",
+    "expected": "max abs error <= 1e-06",
+    "actual": "0.000e+00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "outflow_t = interest + principal + monthly fee",
+    "expected": "max abs error <= 1e-06",
+    "actual": "0.000e+00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "sum of principal == original principal",
+    "expected": "180000.000000",
+    "actual": "180000.000000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "final closing balance == 0",
+    "expected": "0",
+    "actual": "0.000e+00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "sum(outflows) = interest + principal + all monthly fees",
+    "expected": "197452.500000",
+    "actual": "197452.500000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "equal-principal first outflow",
+    "expected": "5915.000000",
+    "actual": "5915.000000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "equal-principal outflow is strictly declining",
+    "expected": "first > last",
+    "actual": "5915.00 > 5054.58",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "effective APR: Newton IRR vs engine bisection IRR",
+    "expected": "0.067405788",
+    "actual": "0.067405788",
+    "pass": true,
+    "note": "Different root-finding method on the same saved cash flows."
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "NPV of saved cash flows at independently solved IRR == 0",
+    "expected": "|NPV| <= 1e-06",
+    "actual": "1.410e-10",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "all-in cost == total interest + all fees",
+    "expected": "18652.500000",
+    "actual": "18652.500000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "all-in cost == sum(outflows) - net disbursement",
+    "expected": "18652.500000",
+    "actual": "18652.500000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "peak outflow == max of saved outflows",
+    "expected": "5915.000000",
+    "actual": "5915.000000",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "A4_EQUAL_PRINCIPAL",
+    "method": "affordability flag matches saved peak vs binding ceiling",
+    "expected": "True",
+    "actual": "True",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "baseline",
+    "method": "naive lowest-headline-rate pick (from saved summary)",
+    "expected": "recorded",
+    "actual": "A1_LOW_RATE_FEE",
+    "pass": true,
+    "note": "Simple heuristic used as the comparison reference."
+  },
+  {
+    "case": "baseline",
+    "method": "lowest effective APR among all offers",
+    "expected": "A2_NO_FEE",
+    "actual": "A2_NO_FEE",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "K1 known answer",
+    "method": "reference level payment",
+    "expected": "888.487886783",
+    "actual": "888.487886783",
+    "pass": true,
+    "note": "closed-form ordinary annuity / =PMT(1%,12,10000) in Excel or Google Sheets"
+  },
+  {
+    "case": "K1 known answer",
+    "method": "reference total paid",
+    "expected": "10661.854641401",
+    "actual": "10661.854641401",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "K1 known answer",
+    "method": "reference total interest",
+    "expected": "661.854641401",
+    "actual": "661.854641401",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "K1 known answer",
+    "method": "independent bisection payment vs external reference",
+    "expected": "888.487886783",
+    "actual": "888.487886783",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "C1 changed input",
+    "method": "+1 percentage point on the nominal rate",
+    "expected": "higher payment and higher APR",
+    "actual": "3650.09 -> 3704.70; APR 5.990% -> 6.990%",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "C2 changed input",
+    "method": "+2% upfront fee (HKD 2,400)",
+    "expected": "payment unchanged; APR up; all-in cost up by exactly 2,400",
+    "actual": "payment 3650.09 -> 3650.09; cost 11403.20 -> 13803.20; APR 5.990% -> 7.352%",
+    "pass": true,
+    "note": "Shows why a headline rate alone cannot rank fee-bearing offers."
+  },
+  {
+    "case": "C3 changed input",
+    "method": "term 36 -> 48 months",
+    "expected": "lower monthly payment, higher total interest",
+    "actual": "payment 3650.09 -> 2817.65; interest 11403.20 -> 15247.36",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "C4 changed input",
+    "method": "+HKD 50 monthly fee",
+    "expected": "peak outflow up by exactly 50; total fees up by 50 * 36",
+    "actual": "peak +50.00; fees +1800.00",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "C5 changed input",
+    "method": "budget cap 3,000 vs 5,000",
+    "expected": "affordability flips NO -> YES",
+    "actual": "3,000: False; 5,000: True",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "C6 changed input",
+    "method": "annuity -> equal-principal plan",
+    "expected": "declining outflow and lower total interest",
+    "actual": "first 3932.33 > last 3349.97; interest 11403.20 -> 11081.50",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "negative principal",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "zero term",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "unknown repayment type",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "non-numeric rate",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "rate above 100%",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "duplicate offer id",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "missing offer id",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E1 invalid input",
+    "method": "fractional term",
+    "expected": "clear InputError, no calculation",
+    "actual": "InputError: Input validation failed; nothing was calculated. Fix the following:",
+    "pass": true,
+    "note": ""
+  },
+  {
+    "case": "E2 error behaviour",
+    "method": "CLI on invalid input exits nonzero and writes nothing",
+    "expected": "returncode 3 + 'INPUT ERROR' on stderr",
+    "actual": "returncode 3; stderr=\"INPUT ERROR: Input validation failed; nothing was calculated. Fix the following:\\n  - row 2 (A): 'principal' mu\"; output folder created=False",
+    "pass": true,
+    "note": ""
+  }
+]

@@ -1,0 +1,31 @@
+==============================================================================
+EXECUTION EVIDENCE | case_B | engine run (loan_compare.py)
+==============================================================================
+UTC timestamp : 2026-11-10T08:17:22+00:00
+Working dir   : project root (parent of scripts/)
+Python        : 3.13.14 on win32
+Interpreter   : sys.executable resolved locally; shown as 'python' below
+Command       : python skills/loan-offer-comparison/scripts/loan_compare.py --offers skills/loan-offer-comparison/examples/offers_case_B.csv --config skills/loan-offer-comparison/examples/borrower_case_B.json --out outputs/fresh_case_B
+Exit code     : 0
+------------------------------------------------------------------------------
+STDOUT
+------------------------------------------------------------------------------
+Loan Offer Compass v1.0.0 | case: case_B_CN_sme_equipment_loan | currency: CNY
+Input checks: 4 offers, 0 validation errors, 0 duplicate ids
+Binding monthly ceiling: 12,000.00 CNY
+
+offer               peak/m     all-in cost       APR       EAR  affordable  checks
+B1_INDUSTRIAL    11,144.93       77,696.03    4.971%    5.085%  YES         7/7
+B2_CITY_BANK     11,281.55       76,893.21    4.850%    4.959%  YES         7/7
+B3_LESSOR        15,050.00       68,475.00    5.629%    5.776%  NO          7/7
+B4_DIGITAL       13,769.12       63,917.88    5.076%    5.196%  NO          7/7
+
+Naive lowest-rate pick : B1_INDUSTRIAL
+Lowest effective APR   : B2_CITY_BANK  -> DISAGREE (headline rates mislead)
+Ranking by all-in cost (affordable only): B2_CITY_BANK, B1_INDUSTRIAL
+
+Outputs -> outputs/fresh_case_B
+
+------------------------------------------------------------------------------
+END OF RECORD
+------------------------------------------------------------------------------

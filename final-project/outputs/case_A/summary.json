@@ -1,0 +1,352 @@
+{
+  "engine": "loan-offer-comparison",
+  "engine_version": "1.0.0",
+  "generated_utc": "2026-11-10T08:17:21+00:00",
+  "python_version": "3.13.14",
+  "case": {
+    "case_id": "case_A_HK_personal_loan",
+    "currency": "HKD",
+    "monthly_budget_cap": 6000.0,
+    "monthly_income": 30000.0,
+    "max_payment_to_income": 0.35,
+    "periods_per_year": 12,
+    "data_note": "Synthetic teaching offers for an individual borrower comparing HKD 180,000 personal instalment loans. Not real quotations. See data/source_notes.md."
+  },
+  "cash_flow_convention": "t=0: +(principal - upfront fees); t=1..n: -(interest + principal + monthly fee); APR = 12 * monthly IRR; EAR = (1 + monthly IRR)^12 - 1; all-in cost = sum(outflows) - net disbursement",
+  "input_checks": {
+    "offers_file": "offers_case_A.csv",
+    "columns_found": [
+      "offer_id",
+      "lender",
+      "principal",
+      "annual_nominal_rate",
+      "term_months",
+      "repayment_type",
+      "fee_upfront_fixed",
+      "fee_upfront_pct",
+      "fee_monthly"
+    ],
+    "row_count": 4,
+    "duplicate_offer_ids": [],
+    "missing_values": 0,
+    "unknown_columns_ignored": [],
+    "validation_errors": []
+  },
+  "offers": [
+    {
+      "offer_id": "A1_LOW_RATE_FEE",
+      "lender": "Harbour Credit",
+      "repayment_type": "annuity",
+      "principal": 180000.0,
+      "annual_nominal_rate": 0.052,
+      "term_months": 36,
+      "fee_upfront_fixed": 0.0,
+      "fee_upfront_pct": 0.025,
+      "fee_monthly": 0.0,
+      "upfront_fee_total": 4500.0,
+      "net_disbursement": 175500.0,
+      "periodic_rate": 0.004333333333333333,
+      "level_instalment_ex_fees": 5410.939535598981,
+      "first_instalment": 5410.939535598981,
+      "peak_monthly_outflow": 5410.939535598981,
+      "final_monthly_outflow": 5410.939535597443,
+      "total_outflow": 194793.82328156178,
+      "total_interest": 14793.823281561796,
+      "total_fees": 4500.0,
+      "total_cost": 19293.82328156178,
+      "irr_monthly": 0.0057503073211648825,
+      "effective_apr": 0.06900368785397859,
+      "effective_ear": 0.07122842311347544,
+      "npv_at_irr": 4.3320142140146345e-08,
+      "affordability_ceiling": 6000.0,
+      "payment_to_income": 0.1803646511866327,
+      "affordable_by_budget": true,
+      "affordable_by_dti": true,
+      "affordable": true,
+      "headroom_vs_ceiling": 589.0604644010191,
+      "max_affordable_principal": 199595.65116087106,
+      "schedule_file": "schedules/A1_LOW_RATE_FEE.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": -2.9103830456733704e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": -1.4551915228366852e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": 4.3320142140146345e-08,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    },
+    {
+      "offer_id": "A2_NO_FEE",
+      "lender": "Standard Retail Bank",
+      "repayment_type": "annuity",
+      "principal": 180000.0,
+      "annual_nominal_rate": 0.063,
+      "term_months": 36,
+      "fee_upfront_fixed": 0.0,
+      "fee_upfront_pct": 0.0,
+      "fee_monthly": 0.0,
+      "upfront_fee_total": 0.0,
+      "net_disbursement": 180000.0,
+      "periodic_rate": 0.00525,
+      "level_instalment_ex_fees": 5500.449577782939,
+      "first_instalment": 5500.449577782939,
+      "peak_monthly_outflow": 5500.449577782939,
+      "final_monthly_outflow": 5500.44957778213,
+      "total_outflow": 198016.184800185,
+      "total_interest": 18016.18480018497,
+      "total_fees": 0.0,
+      "total_cost": 18016.184800185,
+      "irr_monthly": 0.0052500000000179625,
+      "effective_apr": 0.06300000000021555,
+      "effective_ear": 0.06485133891320638,
+      "npv_at_irr": 5.769197741756216e-08,
+      "affordability_ceiling": 6000.0,
+      "payment_to_income": 0.1833483192594313,
+      "affordable_by_budget": true,
+      "affordable_by_dti": true,
+      "affordable": true,
+      "headroom_vs_ceiling": 499.55042221706117,
+      "max_affordable_principal": 196347.58663403773,
+      "schedule_file": "schedules/A2_NO_FEE.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": 2.9103830456733704e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": 2.9103830456733704e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": 3.2741809263825417e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": 5.769197741756216e-08,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    },
+    {
+      "offer_id": "A3_SHORT_TERM",
+      "lender": "QuickClear Finance",
+      "repayment_type": "annuity",
+      "principal": 180000.0,
+      "annual_nominal_rate": 0.068,
+      "term_months": 24,
+      "fee_upfront_fixed": 0.0,
+      "fee_upfront_pct": 0.0,
+      "fee_monthly": 0.0,
+      "upfront_fee_total": 0.0,
+      "net_disbursement": 180000.0,
+      "periodic_rate": 0.005666666666666667,
+      "level_instalment_ex_fees": 8042.753825168813,
+      "first_instalment": 8042.753825168813,
+      "peak_monthly_outflow": 8042.753825170194,
+      "final_monthly_outflow": 8042.753825170194,
+      "total_outflow": 193026.09180405288,
+      "total_interest": 13026.091804052894,
+      "total_fees": 0.0,
+      "total_cost": 13026.091804052878,
+      "irr_monthly": 0.0056666666666558285,
+      "effective_apr": 0.06799999999986994,
+      "effective_ear": 0.0701598802495833,
+      "npv_at_irr": -2.371962182223797e-08,
+      "affordability_ceiling": 6000.0,
+      "payment_to_income": 0.2680917941723398,
+      "affordable_by_budget": false,
+      "affordable_by_dti": true,
+      "affordable": false,
+      "headroom_vs_ceiling": -2042.7538251701944,
+      "max_affordable_principal": 134282.36440851833,
+      "schedule_file": "schedules/A3_SHORT_TERM.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": -2.9103830456733704e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": -1.6370904631912708e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": -2.371962182223797e-08,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    },
+    {
+      "offer_id": "A4_EQUAL_PRINCIPAL",
+      "lender": "Fintech Lending",
+      "repayment_type": "equal_principal",
+      "principal": 180000.0,
+      "annual_nominal_rate": 0.059,
+      "term_months": 36,
+      "fee_upfront_fixed": 1200.0,
+      "fee_upfront_pct": 0.0,
+      "fee_monthly": 30.0,
+      "upfront_fee_total": 1200.0,
+      "net_disbursement": 178800.0,
+      "periodic_rate": 0.004916666666666666,
+      "level_instalment_ex_fees": null,
+      "first_instalment": 5915.0,
+      "peak_monthly_outflow": 5915.0,
+      "final_monthly_outflow": 5054.583333333333,
+      "total_outflow": 197452.5,
+      "total_interest": 16372.5,
+      "total_fees": 2280.0,
+      "total_cost": 18652.5,
+      "irr_monthly": 0.005617149020650913,
+      "effective_apr": 0.06740578824781096,
+      "effective_ear": 0.06952773302158421,
+      "npv_at_irr": 4.7240064304787666e-08,
+      "affordability_ceiling": 6000.0,
+      "payment_to_income": 0.19716666666666666,
+      "affordable_by_budget": true,
+      "affordable_by_dti": true,
+      "affordable": true,
+      "headroom_vs_ceiling": 85.0,
+      "max_affordable_principal": 182599.83007640584,
+      "schedule_file": "schedules/A4_EQUAL_PRINCIPAL.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": 4.7240064304787666e-08,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    }
+  ],
+  "ranking": {
+    "by_total_cost_all": [
+      "A3_SHORT_TERM",
+      "A2_NO_FEE",
+      "A4_EQUAL_PRINCIPAL",
+      "A1_LOW_RATE_FEE"
+    ],
+    "by_total_cost_affordable": [
+      "A2_NO_FEE",
+      "A4_EQUAL_PRINCIPAL",
+      "A1_LOW_RATE_FEE"
+    ],
+    "by_effective_apr": [
+      "A2_NO_FEE",
+      "A4_EQUAL_PRINCIPAL",
+      "A3_SHORT_TERM",
+      "A1_LOW_RATE_FEE"
+    ],
+    "affordable_offers": [
+      "A1_LOW_RATE_FEE",
+      "A2_NO_FEE",
+      "A4_EQUAL_PRINCIPAL"
+    ]
+  },
+  "naive_baseline": {
+    "description": "Naive shortcut: pick the offer with the lowest headline nominal rate.",
+    "naive_pick": "A1_LOW_RATE_FEE",
+    "all_in_pick": "A2_NO_FEE",
+    "disagree": true
+  },
+  "tolerance": 1e-06
+}

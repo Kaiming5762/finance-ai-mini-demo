@@ -1,0 +1,5 @@
+﻿offer_id,lender,principal,annual_nominal_rate,term_months,repayment_type,fee_upfront_fixed,fee_upfront_pct,fee_monthly
+A1_LOW_RATE_FEE,Harbour Credit,180000,0.0520,36,annuity,0,0.025,0
+A2_NO_FEE,Standard Retail Bank,180000,0.0630,36,annuity,0,0,0
+A3_SHORT_TERM,QuickClear Finance,180000,0.0680,24,annuity,0,0,0
+A4_EQUAL_PRINCIPAL,Fintech Lending,180000,0.0590,36,equal_principal,1200,0,30

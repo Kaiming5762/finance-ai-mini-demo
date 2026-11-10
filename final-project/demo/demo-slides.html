@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loan Offer Compass - 5-minute demo</title>
+<style>
+  :root { --ink:#111827; --muted:#6b7280; --blue:#1d4ed8; --line:#e5e7eb; --bg:#f8fafc; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", Calibri, Arial, sans-serif; color:var(--ink);
+         background:var(--bg); scroll-snap-type: y mandatory; overflow-y: scroll; height:100vh; }
+  .deck { height:100vh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+  .slide { min-height:100vh; scroll-snap-align:start; padding:6vh 8vw; display:flex;
+           flex-direction:column; justify-content:center; background:#fff;
+           border-bottom:1px solid var(--line); }
+  .kicker { color:var(--blue); font-size:13px; font-weight:700; letter-spacing:.12em;
+            text-transform:uppercase; margin-bottom:12px; }
+  h1 { font-size:44px; line-height:1.14; margin:0 0 18px; }
+  h2 { font-size:32px; margin:0 0 18px; }
+  p, li { font-size:19px; line-height:1.6; color:#374151; max-width:1000px; }
+  .big { font-size:23px; }
+  .tag { display:inline-block; background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe;
+         border-radius:999px; padding:5px 13px; font-size:14px; margin:0 8px 8px 0; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:20px; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:18px 22px; background:#fcfdff; }
+  .card h3 { margin:0 0 8px; font-size:18px; color:var(--blue); }
+  table { border-collapse:collapse; width:100%; font-size:14px; margin-top:14px; }
+  th, td { border:1px solid var(--line); padding:7px 9px; text-align:left; }
+  th { background:#eef2f7; color:#0f2b5b; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .hi { background:#fef3c7; }
+  .bad { color:#b91c1c; font-weight:600; }
+  .good { color:#047857; font-weight:600; }
+  img.chart { width:100%; border:1px solid var(--line); border-radius:10px; background:#fff; }
+  code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:.88em;
+         font-family:Consolas, monospace; }
+  .foot { margin-top:26px; color:var(--muted); font-size:14px; }
+  .nav { position:fixed; right:22px; bottom:22px; display:flex; gap:8px; z-index:9; }
+  .nav button { width:38px; height:38px; border-radius:50%; border:1px solid var(--line);
+                background:#fff; color:var(--ink); cursor:pointer; font-size:18px; }
+  .nav button:hover { background:#eff6ff; border-color:#93c5fd; }
+  .page { position:fixed; left:22px; bottom:24px; color:var(--muted); font-size:13px; z-index:9; }
+  a { color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="slide">
+    <div class="kicker">Slide 1 / 5 &middot; 0:00-0:45 &middot; User task</div>
+    <h1>Which loan offer is actually cheapest<br>and can I afford it?</h1>
+    <p class="big">Four HKD 180,000 personal instalment-loan offers. Different nominal
+      rates, arrangement fees, terms and repayment structures. A HKD 6,000 monthly cap.</p>
+    <div style="margin-top:22px">
+      <span class="tag">Synthetic teaching data</span>
+      <span class="tag">Inputs: offers CSV + borrower JSON</span>
+      <span class="tag">Python standard library only</span>
+      <span class="tag">Single agent</span>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Why the shortcut fails</h3>
+        <p>Nominal rates hide fees and term effects. A 24-month offer can be cheapest in
+        total interest yet impossible to service. An equal-principal plan is front-loaded.</p></div>
+      <div class="card"><h3>What we deliver</h3>
+        <p>Exact amortisation schedules, IRR-based APR/EAR, an affordability verdict,
+        an all-in ranking and an independent check record.</p></div>
+    </div>
+    <p class="foot">Live demonstration - single take. If recorded, label it as recorded.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 2 / 5 &middot; 0:45-1:45 &middot; Core output</div>
+    <h2>Case A result - the headline-rate trap</h2>
+    <table>
+      <tr><th>Offer</th><th>Nominal p.a.</th><th>Peak / month</th><th>All-in cost</th>
+          <th>Effective APR</th><th>Affordable</th></tr>
+      <tr><td>A1_LOW_RATE_FEE</td><td class="num">5.200%</td><td class="num">5,410.94</td>
+          <td class="num">19,293.82</td><td class="num">6.900%</td><td>YES</td></tr>
+      <tr class="hi"><td><strong>A2_NO_FEE</strong></td><td class="num">6.300%</td>
+          <td class="num">5,500.45</td><td class="num"><strong>18,016.18</strong></td>
+          <td class="num"><strong>6.300%</strong></td><td class="good">YES</td></tr>
+      <tr><td>A3_SHORT_TERM</td><td class="num">6.800%</td><td class="num">8,042.75</td>
+          <td class="num">13,026.09</td><td class="num">6.800%</td><td class="bad">NO</td></tr>
+      <tr><td>A4_EQUAL_PRINCIPAL</td><td class="num">5.900%</td><td class="num">5,915.00</td>
+          <td class="num">18,652.50</td><td class="num">6.741%</td><td>YES</td></tr>
+    </table>
+    <p style="margin-top:16px"><strong>Naive pick A1 (5.200%)</strong> &rarr; its 2.5% fee lifts APR
+      to 6.900%. <strong>Cheapest affordable offer is A2.</strong> A3 is cheapest overall but
+      breaks the HKD 6,000 cap by HKD 2,042.75.</p>
+    <div class="grid" style="margin-top:14px">
+      <div><img class="chart" src="../outputs/case_A/balance_paths.svg" alt="Remaining balance curves"></div>
+      <div><img class="chart" src="../outputs/case_A/cost_breakdown.svg" alt="All-in cost breakdown"></div>
+    </div>
+    <p class="foot">Run: <code>python scripts/run_all.py --only case_A</code> &middot; full output in
+      <code>outputs/case_A/comparison.md</code></p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 3 / 5 &middot; 1:45-3:00 &middot; An important check</div>
+    <h2>83/83 checks passed - with two different methods</h2>
+    <div class="grid">
+      <div class="card"><h3>Independent payment</h3>
+        <p>Bisection on a recursive balance equation instead of the annuity closed form.
+        A2: <strong>5,500.449578</strong> by both methods.</p></div>
+      <div class="card"><h3>Independent IRR</h3>
+        <p>Newton's method with an analytic derivative instead of bisection.
+        A1: <strong>0.069003688</strong> by both methods.</p></div>
+      <div class="card"><h3>Known answer</h3>
+        <p>10,000 at 12% p.a. for 12 months:
+        <code>=PMT(1%,12,10000)</code> = <strong>888.487886783</strong>,
+        total interest 661.854641401. Matches.</p></div>
+      <div class="card"><h3>Changed &amp; invalid inputs</h3>
+        <p>6 changed-input cases (rate, fee, term, cap, plan), 8 malformed CSVs and one
+        CLI error-behaviour case: bad inputs exit 3, write nothing.</p></div>
+    </div>
+    <p style="margin-top:18px">The checker re-reads the <strong>saved schedule CSVs</strong> and the
+      original offers file, checks the cash-flow identities and <code>NPV(IRR) = 0</code>
+      (max residual ~5e-11 against 1e-6 tolerance).</p>
+    <p><strong>Honest failure:</strong> the first verification was 11/12 with
+      <code>Newton IRR did not converge</code>; the stopping rule was fixed and the final
+      run reached 83/83. Not hidden.</p>
+    <p class="foot">Full tables: <code>outputs/case_A/verification.md</code> &middot;
+      <code>evidence/E2_verification.txt</code></p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 4 / 5 &middot; 4:00-4:45 &middot; Reusable component</div>
+    <h2>A regular Skill, executed on a fresh case</h2>
+    <p><code>skills/loan-offer-comparison/</code> - <code>SKILL.md</code> with YAML name and
+      description, scope, inputs/outputs, financial definitions, six-part procedure,
+      checks and failure handling; plus scripts, examples and a README.</p>
+    <div class="grid">
+      <div class="card"><h3>Fresh Case B (different in every way)</h3>
+        <p>CNY 600,000 SME equipment finance; 48/60-month terms; rates 4.35-5.10%;
+        budget cap CNY 12,000; new empty output folder.</p></div>
+      <div class="card"><h3>Result</h3>
+        <p>Naive pick B1 (4.350%) vs lowest APR B2 (4.850%) - <strong>disagree again</strong>.
+        83/83 checks passed. Labelled <strong>self-reproduction</strong>, not peer reuse.</p></div>
+    </div>
+    <p style="margin-top:18px"><code>python scripts/run_all.py --only case_B --case-b-out outputs/demo_fresh</code></p>
+    <p>Configurable: offers, config, output folder, currency, case ID, cap, income, DTI ceiling.
+      No hard-coded personal paths, secrets, cached answers or approvals.</p>
+    <p class="foot">Evidence: <code>evidence/E3_fresh_case_B_run.txt</code>,
+      <code>evidence/E4_changed_inputs_checks.txt</code></p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 5 / 5 &middot; 4:45-5:00 &middot; Where it lives</div>
+    <h2>Public package and limitations</h2>
+    <div class="grid">
+      <div class="card"><h3>GitHub / community</h3>
+        <p><a href="https://github.com/Kaiming5762/finance-ai-mini-demo">Kaiming5762/finance-ai-mini-demo</a>
+        &middot; folder <code>final-project/</code><br>
+        openJiuwen: <a href="https://github.com/openJiuwen-ai/jiuwenswarm">openJiuwen-ai/jiuwenswarm</a><br>
+        Exact commit: see <code>community/contribution-record.md</code></p></div>
+      <div class="card"><h3>Limitations</h3>
+        <p>Monthly instalments only. Nominal all-in cost is undiscounted. Fee-withholding
+        is an assumption. Synthetic data, no real quotes. APR here is an IRR-based borrower
+        cost, not a statutory disclosure figure. 83 checks on two small cases.</p></div>
+    </div>
+    <p style="margin-top:24px" class="big"><strong>One-line takeaway:</strong> the lowest
+      advertised rate is not the cheapest loan - a reproducible cash-flow calculation
+      with an independent check makes that visible.</p>
+    <p class="foot">Report: <code>report/report.pdf</code> (9 pages) &middot;
+      Reproduction: <code>python scripts/run_all.py</code></p>
+  </section>
+
+</div>
+<div class="nav"><button id="prev" aria-label="Previous slide">&#8593;</button><button id="next" aria-label="Next slide">&#8595;</button></div>
+<div class="page" id="page">Slide 1 / 5 &middot; use arrow keys or the buttons</div>
+<script>
+  var deck = document.getElementById('deck');
+  var slides = document.querySelectorAll('.slide');
+  var label = document.getElementById('page');
+  function go(d) {
+    var i = Math.round(deck.scrollTop / deck.clientHeight) + d;
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    deck.scrollTo({ top: i * deck.clientHeight, behavior: 'smooth' });
+  }
+  document.getElementById('prev').onclick = function(){ go(-1); };
+  document.getElementById('next').onclick = function(){ go(1); };
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+  });
+  deck.addEventListener('scroll', function(){
+    var i = Math.round(deck.scrollTop / deck.clientHeight) + 1;
+    label.textContent = 'Slide ' + i + ' / ' + slides.length + ' - use arrow keys or the buttons';
+  });
+</script>
+</body>
+</html>

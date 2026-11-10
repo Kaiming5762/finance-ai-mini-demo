@@ -1,0 +1,9 @@
+{
+  "case_id": "case_B_CN_sme_equipment_loan",
+  "currency": "CNY",
+  "monthly_budget_cap": 12000.0,
+  "monthly_income": 60000.0,
+  "max_payment_to_income": 0.30,
+  "periods_per_year": 12,
+  "data_note": "Synthetic teaching offers for a small business comparing CNY 600,000 equipment-finance loans. Not real quotations. Currency is a display label only; no FX conversion is performed. See data/source_notes.md."
+}

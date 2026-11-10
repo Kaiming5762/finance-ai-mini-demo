@@ -1,0 +1,350 @@
+{
+  "engine": "loan-offer-comparison",
+  "engine_version": "1.0.0",
+  "generated_utc": "2026-11-10T08:17:22+00:00",
+  "python_version": "3.13.14",
+  "case": {
+    "case_id": "case_B_CN_sme_equipment_loan",
+    "currency": "CNY",
+    "monthly_budget_cap": 12000.0,
+    "monthly_income": 60000.0,
+    "max_payment_to_income": 0.3,
+    "periods_per_year": 12,
+    "data_note": "Synthetic teaching offers for a small business comparing CNY 600,000 equipment-finance loans. Not real quotations. Currency is a display label only; no FX conversion is performed. See data/source_notes.md."
+  },
+  "cash_flow_convention": "t=0: +(principal - upfront fees); t=1..n: -(interest + principal + monthly fee); APR = 12 * monthly IRR; EAR = (1 + monthly IRR)^12 - 1; all-in cost = sum(outflows) - net disbursement",
+  "input_checks": {
+    "offers_file": "offers_case_B.csv",
+    "columns_found": [
+      "offer_id",
+      "lender",
+      "principal",
+      "annual_nominal_rate",
+      "term_months",
+      "repayment_type",
+      "fee_upfront_fixed",
+      "fee_upfront_pct",
+      "fee_monthly"
+    ],
+    "row_count": 4,
+    "duplicate_offer_ids": [],
+    "missing_values": 0,
+    "unknown_columns_ignored": [],
+    "validation_errors": []
+  },
+  "offers": [
+    {
+      "offer_id": "B1_INDUSTRIAL",
+      "lender": "Industrial Equipment Finance",
+      "repayment_type": "annuity",
+      "principal": 600000.0,
+      "annual_nominal_rate": 0.0435,
+      "term_months": 60,
+      "fee_upfront_fixed": 0.0,
+      "fee_upfront_pct": 0.015,
+      "fee_monthly": 0.0,
+      "upfront_fee_total": 9000.0,
+      "net_disbursement": 591000.0,
+      "periodic_rate": 0.0036249999999999998,
+      "level_instalment_ex_fees": 11144.933785603478,
+      "first_instalment": 11144.933785603478,
+      "peak_monthly_outflow": 11144.933785603478,
+      "final_monthly_outflow": 11144.933785601257,
+      "total_outflow": 668696.0271362065,
+      "total_interest": 68696.0271362066,
+      "total_fees": 9000.0,
+      "total_cost": 77696.02713620651,
+      "irr_monthly": 0.004142146301063576,
+      "effective_apr": 0.049705755612762914,
+      "effective_ear": 0.05085392415322665,
+      "npv_at_irr": 3.3641481422819197e-07,
+      "affordability_ceiling": 12000.0,
+      "payment_to_income": 0.18574889642672462,
+      "affordable_by_budget": true,
+      "affordable_by_dti": true,
+      "affordable": true,
+      "headroom_vs_ceiling": 855.0662143965219,
+      "max_affordable_principal": 646033.4478882486,
+      "schedule_file": "schedules/B1_INDUSTRIAL.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": -1.1641532182693481e-10,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": -1.1641532182693481e-10,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": -8.731149137020111e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": 3.3641481422819197e-07,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    },
+    {
+      "offer_id": "B2_CITY_BANK",
+      "lender": "City Commercial Bank",
+      "repayment_type": "annuity",
+      "principal": 600000.0,
+      "annual_nominal_rate": 0.0485,
+      "term_months": 60,
+      "fee_upfront_fixed": 0.0,
+      "fee_upfront_pct": 0.0,
+      "fee_monthly": 0.0,
+      "upfront_fee_total": 0.0,
+      "net_disbursement": 600000.0,
+      "periodic_rate": 0.0040416666666666665,
+      "level_instalment_ex_fees": 11281.553517301241,
+      "first_instalment": 11281.553517301241,
+      "peak_monthly_outflow": 11281.55351731049,
+      "final_monthly_outflow": 11281.55351731049,
+      "total_outflow": 676893.2110380838,
+      "total_interest": 76893.21103808368,
+      "total_fees": 0.0,
+      "total_cost": 76893.21103808377,
+      "irr_monthly": 0.004041666666665833,
+      "effective_apr": 0.048499999999989996,
+      "effective_ear": 0.049592772123823625,
+      "npv_at_irr": -1.4988472685217857e-08,
+      "affordability_ceiling": 12000.0,
+      "payment_to_income": 0.18802589195517486,
+      "affordable_by_budget": true,
+      "affordable_by_dti": true,
+      "affordable": true,
+      "headroom_vs_ceiling": 718.4464826895091,
+      "max_affordable_principal": 638209.9760420488,
+      "schedule_file": "schedules/B2_CITY_BANK.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": 1.1641532182693481e-10,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": 8.731149137020111e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": -1.4988472685217857e-08,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    },
+    {
+      "offer_id": "B3_LESSOR",
+      "lender": "Equipment Lessor",
+      "repayment_type": "equal_principal",
+      "principal": 600000.0,
+      "annual_nominal_rate": 0.051,
+      "term_months": 48,
+      "fee_upfront_fixed": 6000.0,
+      "fee_upfront_pct": 0.0,
+      "fee_monthly": 0.0,
+      "upfront_fee_total": 6000.0,
+      "net_disbursement": 594000.0,
+      "periodic_rate": 0.0042499999999999994,
+      "level_instalment_ex_fees": null,
+      "first_instalment": 15050.0,
+      "peak_monthly_outflow": 15050.0,
+      "final_monthly_outflow": 12553.125,
+      "total_outflow": 662475.0,
+      "total_interest": 62474.99999999999,
+      "total_fees": 6000.0,
+      "total_cost": 68475.0,
+      "irr_monthly": 0.00469064828459409,
+      "effective_apr": 0.05628777941512908,
+      "effective_ear": 0.05776286980740464,
+      "npv_at_irr": 1.7863385437522084e-07,
+      "affordability_ceiling": 12000.0,
+      "payment_to_income": 0.25083333333333335,
+      "affordable_by_budget": false,
+      "affordable_by_dti": true,
+      "affordable": false,
+      "headroom_vs_ceiling": -3050.0,
+      "max_affordable_principal": 478405.3156145774,
+      "schedule_file": "schedules/B3_LESSOR.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": 1.7863385437522084e-07,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    },
+    {
+      "offer_id": "B4_DIGITAL",
+      "lender": "Digital SME Lender",
+      "repayment_type": "annuity",
+      "principal": 600000.0,
+      "annual_nominal_rate": 0.046,
+      "term_months": 48,
+      "fee_upfront_fixed": 3000.0,
+      "fee_upfront_pct": 0.0,
+      "fee_monthly": 60.0,
+      "upfront_fee_total": 3000.0,
+      "net_disbursement": 597000.0,
+      "periodic_rate": 0.003833333333333333,
+      "level_instalment_ex_fees": 13709.122530340399,
+      "first_instalment": 13769.122530340399,
+      "peak_monthly_outflow": 13769.122530343953,
+      "final_monthly_outflow": 13769.122530343953,
+      "total_outflow": 660917.8814563428,
+      "total_interest": 58037.88145634281,
+      "total_fees": 5880.0,
+      "total_cost": 63917.88145634276,
+      "irr_monthly": 0.004230220857067479,
+      "effective_apr": 0.05076265028480975,
+      "effective_ear": 0.051960518335251615,
+      "npv_at_irr": -6.142727215774357e-09,
+      "affordability_ceiling": 12000.0,
+      "payment_to_income": 0.22948537550573256,
+      "affordable_by_budget": false,
+      "affordable_by_dti": true,
+      "affordable": false,
+      "headroom_vs_ceiling": -1769.1225303439533,
+      "max_affordable_principal": 522571.7389382225,
+      "schedule_file": "schedules/B4_DIGITAL.csv",
+      "checks": {
+        "interest_equals_opening_times_rate": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "balance_roll_forward": {
+          "max_abs_error": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "principal_repaid_equals_principal": {
+          "difference": -1.1641532182693481e-10,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "final_balance_zero": {
+          "value": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "payments_equal_interest_plus_principal_plus_fees": {
+          "difference": 0.0,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "all_in_cost_equals_interest_plus_fees": {
+          "difference": -5.093170329928398e-11,
+          "tolerance": 1e-06,
+          "pass": true
+        },
+        "npv_at_irr_is_zero": {
+          "residual": -6.142727215774357e-09,
+          "tolerance": 1e-06,
+          "pass": true
+        }
+      }
+    }
+  ],
+  "ranking": {
+    "by_total_cost_all": [
+      "B4_DIGITAL",
+      "B3_LESSOR",
+      "B2_CITY_BANK",
+      "B1_INDUSTRIAL"
+    ],
+    "by_total_cost_affordable": [
+      "B2_CITY_BANK",
+      "B1_INDUSTRIAL"
+    ],
+    "by_effective_apr": [
+      "B2_CITY_BANK",
+      "B1_INDUSTRIAL",
+      "B4_DIGITAL",
+      "B3_LESSOR"
+    ],
+    "affordable_offers": [
+      "B1_INDUSTRIAL",
+      "B2_CITY_BANK"
+    ]
+  },
+  "naive_baseline": {
+    "description": "Naive shortcut: pick the offer with the lowest headline nominal rate.",
+    "naive_pick": "B1_INDUSTRIAL",
+    "all_in_pick": "B2_CITY_BANK",
+    "disagree": true
+  },
+  "tolerance": 1e-06
+}

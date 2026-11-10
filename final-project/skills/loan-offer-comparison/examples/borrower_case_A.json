@@ -1,0 +1,9 @@
+{
+  "case_id": "case_A_HK_personal_loan",
+  "currency": "HKD",
+  "monthly_budget_cap": 6000.0,
+  "monthly_income": 30000.0,
+  "max_payment_to_income": 0.35,
+  "periods_per_year": 12,
+  "data_note": "Synthetic teaching offers for an individual borrower comparing HKD 180,000 personal instalment loans. Not real quotations. See data/source_notes.md."
+}

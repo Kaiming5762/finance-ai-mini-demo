@@ -1,0 +1,33 @@
+Loan Offer Compass - run log
+============================
+UTC timestamp      : 2026-11-10T08:17:21+00:00
+Engine version     : 1.0.0
+Python             : 3.13.14 (win32)
+Command            : skills/loan-offer-comparison/scripts/loan_compare.py --offers skills/loan-offer-comparison/examples/offers_case_A.csv --config skills/loan-offer-comparison/examples/borrower_case_A.json --out outputs/case_A
+Offers file        : skills/loan-offer-comparison/examples/offers_case_A.csv
+Config file        : skills/loan-offer-comparison/examples/borrower_case_A.json
+Output folder      : outputs/case_A
+
+Input checks
+------------
+Rows read                : 4
+Columns                  : offer_id, lender, principal, annual_nominal_rate, term_months, repayment_type, fee_upfront_fixed, fee_upfront_pct, fee_monthly
+Missing values           : 0 (optional fee blanks default to 0)
+Duplicate offer ids      : none
+Unknown columns ignored  : none
+Validation errors        : none
+Currency                 : HKD
+Periods per year         : 12 (monthly instalments)
+Monthly budget cap       : 6000.00
+Monthly income           : 30000.00
+Max payment/income       : 0.3500
+
+Per-offer internal identity checks
+-----------------------------------
+A1_LOW_RATE_FEE: 7/7 passed
+A2_NO_FEE: 7/7 passed
+A3_SHORT_TERM: 7/7 passed
+A4_EQUAL_PRINCIPAL: 7/7 passed
+
+Note: these are the engine's own self-checks. Independent verification is in verify.py
+and its output verification.md / evidence/E2_verification.txt.
