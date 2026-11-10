@@ -18,8 +18,9 @@ This reusable Skill is contributed to the openJiuwen community:
 **https://github.com/openJiuwen-ai/jiuwenswarm** (JiuwenSwarm / WorkSwarm)
 
 Course repository (public): `https://github.com/Kaiming5762/finance-ai-mini-demo`,
-folder `final-project/`. Exact final commit: see
-`community/contribution-record.md`.
+folder `final-project/`. Exact final deliverables commit:
+https://github.com/Kaiming5762/finance-ai-mini-demo/commit/c50335ee82f42059086027b6dea897080af06254
+(full publication details in `community/contribution-record.md`).
 
 ## What a new user needs
 

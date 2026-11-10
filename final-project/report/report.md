@@ -368,10 +368,17 @@ The reusable source, README, lawful example, checks and this report are
 published in the **public GitHub repository**
 `https://github.com/Kaiming5762/finance-ai-mini-demo` under `final-project/`.
 The repository README contains the required openJiuwen link
-**https://github.com/openJiuwen-ai/jiuwenswarm**. The exact final commit URL,
-source ZIP, publication date and fresh-run evidence are recorded in
-`community/contribution-record.md`. Hub submission and upstream PR were **not
-attempted** (optional routes); no status is claimed for them.
+**https://github.com/openJiuwen-ai/jiuwenswarm**.
+
+**Exact final deliverables commit (published 2026-11-10 UTC):**
+`https://github.com/Kaiming5762/finance-ai-mini-demo/commit/c50335ee82f42059086027b6dea897080af06254`.
+
+Because a commit cannot cite its own hash, the tiny commit immediately after the
+one above only writes this URL into `community/contribution-record.md` and this
+report; no calculation, evidence, example or numeric result changed. The source
+ZIP (`final-project_source.zip`), publication date and fresh-run evidence are
+recorded in `community/contribution-record.md`. Hub submission and upstream PR
+were **not attempted** (optional routes); no status is claimed for them.
 
 ## 8. Attribution and AI assistance
 

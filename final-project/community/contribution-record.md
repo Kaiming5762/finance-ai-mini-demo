@@ -22,18 +22,26 @@ factual; optional routes that were not attempted are marked as such.
 
 - **Repository URL:** https://github.com/Kaiming5762/finance-ai-mini-demo
   (public fork of `congw729/finance-ai-mini-demo`, folder `final-project/`).
-- **Exact final commit URL:** `COMMIT_URL_PLACEHOLDER`
-- **Commit hash:** `COMMIT_HASH_PLACEHOLDER`
-- **Commit message:** `COMMIT_MESSAGE_PLACEHOLDER`
+- **Exact final commit URL:**
+  https://github.com/Kaiming5762/finance-ai-mini-demo/commit/c50335ee82f42059086027b6dea897080af06254
+- **Commit hash:** `c50335ee82f42059086027b6dea897080af06254`
+- **Commit message:** `feat: add Loan Offer Compass final project (Loans and financing)`
+  (signed off with `git commit -s`).
 - **Package version:** 1.0.0
 - **Source ZIP:** `final-project_source.zip` (submitted alongside the report;
-  contains source, Skill, checks, examples, report source and docs; excludes
-  secrets, caches, environments and large binaries).
+  generated from the final working tree; contains source, Skill, checks,
+  examples, report source/exports and docs; excludes secrets, caches and
+  environments).
 - **README link to openJiuwen:** https://github.com/openJiuwen-ai/jiuwenswarm
   appears in `final-project/README.md` (section "openJiuwen community link") and
   in `skills/loan-offer-comparison/README.md` and `SKILL.md`.
-- **GitHub publication date:** `PUBLICATION_DATE_PLACEHOLDER`
+- **GitHub publication date:** 2026-11-10 (UTC).
 - **Access blocker:** none observed (GitHub reachable, stored credentials used).
+- **Note on the follow-up commit:** a commit can only cite its predecessor, not
+  itself. The URL above is the commit that contains **all deliverables**. The
+  small commit immediately after it only writes this URL into this record and
+  refreshes the exported report; no calculation, evidence, example or numeric
+  result changed. Both commits are pushed together to `main`.
 
 ## Fresh-run case, invocation, output and verification
 
